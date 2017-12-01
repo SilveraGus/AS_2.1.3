@@ -18,10 +18,36 @@ a step in the assignment. For instance, Step 6 would be commented in your code (
 
 // Step 6 implemented in lines 3-9 below
 
+    Arithmetic a;
+    private float m1 = 5;//one test value for the checks
+    private float m2 = 10;//one test value for the checks
+    @Override
+    public void setUp()throws Exception{
+        super.setUp();
+        a = new Arithmetic();//creates a new arithmetic class
+    }
 
-Make sure to document each step that is implemented in code similar to the example above
-
-
+    public void testArithmeticAdd() {
+        //tests the arithmetic add function
+        assertEquals(a.add(m1, m2), (float)15);
+    }
+    public void testArithmeticMult() {
+        //tests the arithmetic multiplication function
+        assertEquals(a.mult(m1, m2), (float)50);
+    }
+    public void testArithmeticDiff() {
+        //tests the arithmetic differene function
+        assertEquals(a.diff(m1, m2), (float)(-5));
+    }
+    public void testArithmeticDiv() {
+        //tests the arithmetic division function
+        assertEquals(a.div(m1, m2), (float)0.5);
+    }
+    TaxArithmetic taxes =  new TaxArithmetic();
+    public void testArithmeticTax() {
+        //tests the arithmetic tax calfulator function
+        assertEquals(taxes.calculateTax((float)10.75, (float)8.5), (float)0.91375);
+    }
 
 Once the class has completed this assignment, we will discuss what parts of this assignment
 need to be implemented in your semester project. At a minimum, I will have each team create
